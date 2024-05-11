@@ -1,4 +1,4 @@
-package main
+package first
 
 func twoSum(nums []int, target int) []int {
 	delta := map[int]int{}

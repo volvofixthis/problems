@@ -1,4 +1,4 @@
-package main
+package first
 
 func mergeTwoArrays(a, b []int) []int {
 	cSize := len(a) + len(b)

@@ -1,4 +1,4 @@
-module github.com/volvofixthis/problems/leetcode/median-of-two-sorted-arrays-4/go
+module github.com/volvofixthis/problems/leetcode
 
 go 1.21.9
 
