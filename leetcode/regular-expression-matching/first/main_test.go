@@ -27,6 +27,10 @@ func TestFunc(t *testing.T) {
 		{"twelve", "aaa", "a*a*a*a", true},
 		{"thirteen", "aaa", "a*a*a*b*a", true},
 		{"fourteen", "ab", ".*..", true},
+		{"fithteen", "aabcbcbcaccbcaabc", ".*a*aa*.*b*.c*.*a*", true},
+		{"sixteen", "abc", ".*bc*", true},
+		{"seventeen", "abbabaaaaaaacaa", "a*.*b.a.*c*b*a*c*", true},
+		{"eighteen", "aaaaaaaaaaaaab", "a*a*a*a*a*a*a*a*a*c", false},
 	}
 
 	for _, test := range tests {
