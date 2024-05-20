@@ -8,15 +8,15 @@ type ListNode struct {
 }
 
 type Value struct {
-	A   int
-	Val int
+	A    int
+	Node *ListNode
 }
 
 type MergeHeap []Value
 
 func (h MergeHeap) Len() int { return len(h) }
 func (h MergeHeap) Less(i, j int) bool {
-	return h[i].Val < h[j].Val
+	return h[i].Node.Val < h[j].Node.Val
 }
 func (h MergeHeap) Swap(i, j int) { h[i], h[j] = h[j], h[i] }
 
@@ -32,24 +32,26 @@ func (h *MergeHeap) Pop() any {
 	return x
 }
 
+var h = MergeHeap{}
+
 func mergeKLists(lists []*ListNode) *ListNode {
-	h := &MergeHeap{}
-	heap.Init(h)
+	h = h[:0]
+	heap.Init(&h)
 	for i := 0; i < len(lists); i++ {
 		if lists[i] == nil {
 			continue
 		}
-		heap.Push(h, Value{Val: lists[i].Val, A: i})
+		heap.Push(&h, Value{Node: lists[i], A: i})
 		lists[i] = lists[i].Next
 	}
 	result := &ListNode{}
 	current := result
 	for h.Len() != 0 {
-		f := heap.Pop(h).(Value)
-		current.Next = &ListNode{Val: f.Val}
+		f := heap.Pop(&h).(Value)
+		current.Next = f.Node
 		current = current.Next
 		if lists[f.A] != nil {
-			heap.Push(h, Value{Val: lists[f.A].Val, A: f.A})
+			heap.Push(&h, Value{Node: lists[f.A], A: f.A})
 			lists[f.A] = lists[f.A].Next
 		}
 	}
