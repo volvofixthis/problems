@@ -4,12 +4,21 @@ import (
 	"strings"
 )
 
+var results = []string{}
+var wordSet = map[string]struct{}{}
+
+func cleanWordSet() {
+	for k := range wordSet {
+		delete(wordSet, k)
+	}
+}
+
 func wordBreak(s string, wordDict []string) []string {
-	wordSet := map[string]struct{}{}
+	cleanWordSet()
 	for _, v := range wordDict {
 		wordSet[v] = struct{}{}
 	}
-	results := []string{}
+	results = results[:0]
 	backtrack(s, wordSet, []string{}, &results, 0)
 	return results
 }
