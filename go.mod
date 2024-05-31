@@ -1,4 +1,4 @@
-module github.com/volvofixthis/problems/leetcode
+module github.com/volvofixthis/problems
 
 go 1.21.9
 

@@ -17,7 +17,7 @@ func TestFunc(t *testing.T) {
 
 	for _, test := range tests {
 		t.Run(test.name, func(t *testing.T) {
-			assert.Equal(t, test.o2, subset(test.i1), "should be equal")
+			assert.Equal(t, test.o2, subsets(test.i1), "should be equal")
 		})
 	}
 }
