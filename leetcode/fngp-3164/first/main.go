@@ -1,31 +1,29 @@
 package first
 
-import "sort"
+import "math"
 
 func numberOfPairs(nums1 []int, nums2 []int, k int) int64 {
-	numsK1 := []int{}
 	m := map[int]int{}
 	for _, v := range nums1 {
 		if v%k == 0 {
-			m[v] += 1
+			m[v/k] += 1
 		}
 	}
-	for k := range m {
-		numsK1 = append(numsK1, k)
-	}
-	sort.Ints(numsK1)
 	m2 := map[int]int{}
 	for _, v := range nums2 {
 		m2[v] += 1
 	}
 	n := int64(0)
-	for c, v := range m2 {
-		d := c * k
-		for i := len(numsK1) - 1; i >= 0; i-- {
-			if numsK1[i] < d {
-				break
-			} else if numsK1[i]%d == 0 {
-				n += int64(m[numsK1[i]] * v)
+	for k := range m {
+		for i := 1; i <= int(math.Sqrt(float64(k))); i++ {
+			if (k % i) == 0 {
+				ans := k / i
+				if v, ok := m2[i]; ok {
+					n += int64(m[k] * v)
+				}
+				if v, ok := m2[ans]; ok && i != ans {
+					n += int64(m[k] * v)
+				}
 			}
 		}
 	}
