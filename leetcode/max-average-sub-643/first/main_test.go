@@ -15,6 +15,7 @@ func TestFunc(t *testing.T) {
 	}{
 		{[]int{1, 12, -5, -6, 50, 3}, 4, 12.75000},
 		{[]int{5}, 1, 5.0},
+		{[]int{-1}, 1, -1},
 	}
 
 	for i, test := range tests {
