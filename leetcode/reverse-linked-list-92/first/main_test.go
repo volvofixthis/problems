@@ -5,7 +5,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/volvofixthis/problems/utils"
+	"github.com/volvofixthis/problems/utils/linkedlist"
 )
 
 func TestFunc(t *testing.T) {
@@ -20,7 +20,7 @@ func TestFunc(t *testing.T) {
 
 	for i, test := range tests {
 		t.Run(fmt.Sprintf("test-%d", i+1), func(t *testing.T) {
-			assert.Equal(t, test.o1, utils.ListNodeToArr(reverseBetween(utils.ArrToListNode(test.i1), test.i2, test.i3)), "should be equal")
+			assert.Equal(t, test.o1, linkedlist.ListNodeToArr(reverseBetween(linkedlist.ArrToListNode(test.i1), test.i2, test.i3)), "should be equal")
 		})
 	}
 }

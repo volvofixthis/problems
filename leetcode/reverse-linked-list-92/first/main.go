@@ -1,10 +1,12 @@
 package first
 
-import "github.com/volvofixthis/problems/utils"
+import (
+	"github.com/volvofixthis/problems/utils/linkedlist"
+)
 
-func reverseBetween(head *utils.ListNode, left int, right int) *utils.ListNode {
+func reverseBetween(head *linkedlist.ListNode, left int, right int) *linkedlist.ListNode {
 	cur := head
-	var prev *utils.ListNode
+	var prev *linkedlist.ListNode
 	for left > 1 {
 		prev = cur
 		cur = cur.Next

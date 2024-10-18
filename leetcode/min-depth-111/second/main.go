@@ -1,14 +1,12 @@
 package main
 
-import (
-	"github.com/volvofixthis/problems/utils"
-)
+import "github.com/volvofixthis/problems/utils/binarytree"
 
-func minDepth(root *utils.TreeNode) int {
+func minDepth(root *binarytree.TreeNode) int {
 	if root == nil {
 		return 0
 	}
-	queue := []*utils.TreeNode{}
+	queue := []*binarytree.TreeNode{}
 	queue = append(queue, root)
 	m := 0
 	for len(queue) > 0 {

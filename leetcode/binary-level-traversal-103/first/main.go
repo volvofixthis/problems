@@ -1,13 +1,13 @@
 package first
 
-import "github.com/volvofixthis/problems/utils"
+import "github.com/volvofixthis/problems/utils/binarytree"
 
-func zigzagLevelOrder(root *utils.TreeNode) [][]int {
+func zigzagLevelOrder(root *binarytree.TreeNode) [][]int {
 	m := [][]int{}
 	if root == nil {
 		return m
 	}
-	queue := []*utils.TreeNode{root}
+	queue := []*binarytree.TreeNode{root}
 	reversed := false
 	for len(queue) > 0 {
 		cl := len(queue)

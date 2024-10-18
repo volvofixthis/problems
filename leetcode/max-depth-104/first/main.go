@@ -1,13 +1,13 @@
 package first
 
-import "github.com/volvofixthis/problems/utils"
+import "github.com/volvofixthis/problems/utils/binarytree"
 
-func maxDepth(root *utils.TreeNode) int {
+func maxDepth(root *binarytree.TreeNode) int {
 	m := 0
 	if root == nil {
 		return m
 	}
-	queue := []*utils.TreeNode{root}
+	queue := []*binarytree.TreeNode{root}
 	for len(queue) > 0 {
 		m++
 		cl := len(queue)

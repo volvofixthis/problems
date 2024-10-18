@@ -1,13 +1,13 @@
 package first
 
-import "github.com/volvofixthis/problems/utils"
+import "github.com/volvofixthis/problems/utils/binarytree"
 
-func levelOrder(root *utils.TreeNode) [][]int {
+func levelOrder(root *binarytree.TreeNode) [][]int {
 	m := [][]int{}
 	if root == nil {
 		return m
 	}
-	queue := []*utils.TreeNode{root}
+	queue := []*binarytree.TreeNode{root}
 	m = append(m, []int{root.Val})
 	for len(queue) > 0 {
 		cl := len(queue)
