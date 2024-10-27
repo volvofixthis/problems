@@ -15,16 +15,22 @@ func mergeSorted(a []int, b []int) []int {
 	ap := 0
 	bp := 0
 	result := make([]int, 0, len(a)+len(b))
-	for {
-		if ap < len(a) && (bp >= len(b) || a[ap] < b[bp]) {
+	for ap < len(a) && bp < len(b) {
+		if a[ap] < b[bp] {
 			result = append(result, a[ap])
 			ap++
-		} else if bp < len(b) {
-			result = append(result, b[bp])
-			bp++
-		} else {
-			break
+			continue
 		}
+		result = append(result, b[bp])
+		bp++
+	}
+	for ap < len(a) {
+		result = append(result, a[ap])
+		ap++
+	}
+	for bp < len(b) {
+		result = append(result, b[bp])
+		bp++
 	}
 	return result
 }
